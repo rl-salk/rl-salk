@@ -33,4 +33,15 @@ OpenAI Gym contains some RL environments that you can experiment with.
 ```
 pip install gym
 ```
-
+# GridWorld Example Gym Env
+First you need to install the rl_salk gym env
+```
+cd gym-envs
+pip install -e .
+```
+You can now import and create the installed env
+```
+import gym
+import rl_salk
+env = gym.make('grid-world-v0')
+```
