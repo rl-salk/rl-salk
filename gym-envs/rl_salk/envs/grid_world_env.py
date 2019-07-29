@@ -18,8 +18,11 @@ GRID_SIZE = 5
 class GridWorldEnv(gym.Env):
   metadata = {'render.modes': ['rgb_array']}
   current_pos = np.array((0,0))
+  
   target_A_pos = np.array((0,0))
+  target_Ap_pos = np.array((0,0))
   target_B_pos = np.array((0,0))
+  target_Bp_pos = np.array((0,0))
   seed = None
   def __init__(self):
     self.action_space = spaces.Discrete(ACTION_SIZE)
@@ -31,9 +34,11 @@ class GridWorldEnv(gym.Env):
     reward = 0
     if self.is_equal(self.target_A_pos,new_pos):
       reward = 10 
+      self.current_pos = self.target_Ap_pos
     elif self.is_equal(self.target_B_pos,new_pos):
       reward = 5
-    if self.is_outside(new_pos[0]) or self.is_outside(new_pos[1]):
+      self.current_pos = self.target_Bp_pos
+    elif self.is_outside(new_pos[0]) or self.is_outside(new_pos[1]):
       reward = -1
     else:
       self.current_pos = new_pos
@@ -45,6 +50,10 @@ class GridWorldEnv(gym.Env):
     self.target_A_pos[1] = self.np_random.randint(GRID_SIZE)
     self.target_B_pos[0] = self.np_random.randint(GRID_SIZE)
     self.target_B_pos[1] = self.np_random.randint(GRID_SIZE)
+    self.target_Ap_pos[0] = self.np_random.randint(GRID_SIZE)
+    self.target_Ap_pos[1] = self.np_random.randint(GRID_SIZE)
+    self.target_Bp_pos[0] = self.np_random.randint(GRID_SIZE)
+    self.target_Bp_pos[1] = self.np_random.randint(GRID_SIZE)
     return [self.get_observations()]
   def render(self, mode='rgb_array', close=False):
     raise NotImplementedError
