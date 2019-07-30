@@ -18,11 +18,6 @@ GRID_SIZE = 5
 class GridWorldEnv(gym.Env):
   metadata = {'render.modes': ['rgb_array']}
   current_pos = np.array((0,0))
-  
-  target_A_pos = np.array((0,0))
-  target_Ap_pos = np.array((0,0))
-  target_B_pos = np.array((0,0))
-  target_Bp_pos = np.array((0,0))
   seed = None
   def __init__(self):
     self.action_space = spaces.Discrete(ACTION_SIZE)
