@@ -34,10 +34,10 @@ class GridWorldEnv(gym.Env):
     dir_vec = ACTION_TO_DIR[action]
     new_pos = self.current_pos + dir_vec
     reward = 0
-    if self.is_equal(self.target_A_pos,new_pos):
+    if self.is_equal(self.target_A_pos,self.current_pos):
       reward = 10 
       self.current_pos = self.target_Ap_pos
-    elif self.is_equal(self.target_B_pos,new_pos):
+    elif self.is_equal(self.target_B_pos,self.current_pos):
       reward = 5
       self.current_pos = self.target_Bp_pos
     elif self.is_outside(new_pos[0]) or self.is_outside(new_pos[1]):
