@@ -45,3 +45,8 @@ import gym
 import rl_salk
 env = gym.make('grid-world-v0')
 ```
+
+### Creating new gym environments
+
+The docs: http://gym.openai.com/docs/
+Blog post: https://medium.com/@apoddar573/making-your-own-custom-environment-in-gym-c3b65ff8cdaa
