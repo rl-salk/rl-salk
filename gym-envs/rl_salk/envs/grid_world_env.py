@@ -22,6 +22,7 @@ class GridWorldEnv(gym.Env):
   def __init__(self):
     self.action_space = spaces.Discrete(ACTION_SIZE)
     self.np_random, self.seed = seeding.np_random(self.seed)
+    self.set_targets()
     self.reset()
   def set_targets(self, a=None,ap=None,b=None,bp=None):
     self.target_A_pos = a
