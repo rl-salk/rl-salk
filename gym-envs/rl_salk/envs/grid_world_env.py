@@ -24,14 +24,16 @@ class GridWorldEnv(gym.Env):
   target_B_pos = np.array((0,0))
   target_Bp_pos = np.array((0,0))
   seed = None
-  def __init__(self,a=None,ap=None,b=None,bp=None):
+  def __init__(self):
     self.action_space = spaces.Discrete(ACTION_SIZE)
     self.np_random, self.seed = seeding.np_random(self.seed)
+    self.reset()
+  def set_targets(self, a=None,ap=None,b=None,bp=None):
     self.target_A_pos = a
     self.target_Ap_pos = ap
     self.target_B_pos = b
     self.target_Bp_pos = bp
-    self.reset()
+    pass
   def step(self, action):
     dir_vec = ACTION_TO_DIR[action]
     new_pos = self.current_pos + dir_vec
@@ -50,18 +52,14 @@ class GridWorldEnv(gym.Env):
   def reset(self, new_targets=False):
     self.current_pos[0] = self.np_random.randint(GRID_SIZE)
     self.current_pos[1] = self.np_random.randint(GRID_SIZE)
-    if self.target_A_pos == None or new_targets:
-      self.target_A_pos[0] = self.np_random.randint(GRID_SIZE)
-      self.target_A_pos[1] = self.np_random.randint(GRID_SIZE)
-    if self.target_B_pos == None or new_targets:
-      self.target_B_pos[0] = self.np_random.randint(GRID_SIZE)
-      self.target_B_pos[1] = self.np_random.randint(GRID_SIZE)
-    if self.target_Ap_pos == None or new_targets:
-      self.target_Ap_pos[0] = self.np_random.randint(GRID_SIZE)
-      self.target_Ap_pos[1] = self.np_random.randint(GRID_SIZE)
-    if self.target_Bp_pos == None or new_targets:
-      self.target_Bp_pos[0] = self.np_random.randint(GRID_SIZE)
-      self.target_Bp_pos[1] = self.np_random.randint(GRID_SIZE)
+    if self.target_A_pos is None or new_targets:
+      self.target_A_pos = np.array((self.np_random.randint(GRID_SIZE),self.np_random.randint(GRID_SIZE)))
+    if self.target_B_pos is None or new_targets:
+      self.target_B_pos = np.array((self.np_random.randint(GRID_SIZE),self.np_random.randint(GRID_SIZE)))
+    if self.target_Ap_pos is None or new_targets:
+      self.target_Ap_pos = np.array((self.np_random.randint(GRID_SIZE),self.np_random.randint(GRID_SIZE)))
+    if self.target_Bp_pos is None or new_targets:
+      self.target_Bp_pos = np.array((self.np_random.randint(GRID_SIZE),self.np_random.randint(GRID_SIZE)))
     return [self.get_observations()]
   def render(self, mode='rgb_array', close=False):
     raise NotImplementedError
