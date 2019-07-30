@@ -23,7 +23,7 @@ This creates an environment called "gym", now you can switch and install gym pac
 
 ### Activating conda environment
 ```
-activate gym
+conda activate gym
 ```
 
 ## OpenAI Gym
