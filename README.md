@@ -36,7 +36,7 @@ pip install gym
 # GridWorld Example Gym Env
 First you need to install the rl_salk gym env
 ```
-cd gym-envs
+cd libs
 pip install -e .
 ```
 You can now import and create the installed env

@@ -1,6 +1,0 @@
-setup.py
-rl_salk.egg-info/PKG-INFO
-rl_salk.egg-info/SOURCES.txt
-rl_salk.egg-info/dependency_links.txt
-rl_salk.egg-info/requires.txt
-rl_salk.egg-info/top_level.txt

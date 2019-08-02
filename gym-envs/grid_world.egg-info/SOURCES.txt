@@ -1,6 +1,0 @@
-setup.py
-grid_world.egg-info/PKG-INFO
-grid_world.egg-info/SOURCES.txt
-grid_world.egg-info/dependency_links.txt
-grid_world.egg-info/requires.txt
-grid_world.egg-info/top_level.txt
