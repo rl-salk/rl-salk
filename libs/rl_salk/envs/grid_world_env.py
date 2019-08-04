@@ -64,4 +64,4 @@ class GridWorldEnv(gym.Env):
   def is_equal(self, a,b):
     return a[0] == b[0] and a[1] == b[1]
   def get_observations(self):
-    return {"current_pos": self.current_pos, "target_A_pos": self.target_A_pos, "target_B_pos": self.target_B_pos }
+    return {"current_pos": self.current_pos }
