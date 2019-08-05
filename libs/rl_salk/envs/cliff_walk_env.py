@@ -70,6 +70,9 @@ class CliffWalkEnv(gym.Env):
         on_sides = (pos[0] == 0) or (pos[0] == self.grid_size[0] - 1)
         return on_bottom and not on_sides
 
+    def at_start(self, pos):
+        return pos_equal(pos, self.start_pos)
+
     def at_goal(self, pos):
         return pos_equal(pos, self.goal_pos)
 
