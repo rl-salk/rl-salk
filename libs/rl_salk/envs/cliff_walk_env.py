@@ -20,6 +20,8 @@ class CliffWalkEnv(gym.Env):
 
         self.np_random, self.seed = seeding.np_random(self.seed)
         self.action_space = spaces.Discrete(NUM_ACTIONS)
+        self.n_states = np.prod(grid_size)
+        self.observation_space = spaces.Discrete(self.n_states)
 
         self.cliff_penalty = cliff_penalty
 
@@ -72,7 +74,8 @@ class CliffWalkEnv(gym.Env):
         return pos_equal(pos, self.goal_pos)
 
     def in_bounds(self, pos):
-        return np.logical_and(pos >= 0, pos < self.grid_size)
+        in_bounds_vector = np.logical_and(pos >= 0, pos < self.grid_size)
+        return in_bounds_vector.all()
 
     def get_observation(self):
         obs = {"current_pos": self.current_pos}
