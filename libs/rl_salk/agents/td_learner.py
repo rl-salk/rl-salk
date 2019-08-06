@@ -1,6 +1,6 @@
 """
 TDLearner is an agent that implements different Temporal Difference (TD)
-learning algorithms from Sutton & Barto, 2nd ed., Chapter 3.
+learning algorithms from Sutton & Barto, Ch 3, pages 130-131.
 
 QLearner and SarsaLearner are subclasses of TDLearner.
 

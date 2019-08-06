@@ -1,3 +1,7 @@
+"""
+Implementation of Sutton & Barto, Example 6.6 - "Cliff Walking" (p. 132)
+"""
+
 import gym
 import numpy as np
 from gym import spaces
