@@ -28,7 +28,8 @@ class TDLearner(object):
         if self.np_random.rand() < self.exploration_prob:
             action = self.np_random.randint(0, self.n_actions)  # random action
         else:
-            action = np.argmax(self.q[state])  # greedy action
+            action_values = self.q[state, :]
+            action = np.argmax(action_values)  # greedy action
         return action
 
     def learn(self, prev_state, action, state, reward, done,
