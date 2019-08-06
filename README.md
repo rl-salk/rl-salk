@@ -41,6 +41,9 @@ pip install -e .
 ```
 You can now import and create the installed env
 ```
+python
+```
+```
 import gym
 import rl_salk
 env = gym.make('grid-world-v0')
