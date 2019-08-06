@@ -32,7 +32,7 @@ class TicTacToeEnv(gym.Env):
             (self.current_state[0,2] == self.current_state[1,1] == self.current_state[2,0] == 2): 
             reward = -1
             done = True
-        elif (len(np.where(self.current_state==0)[0])==0:
+        elif (len(np.where(self.current_state==0)[0])==0):
             reward = -1
             done = True
         else:
