@@ -1,3 +1,22 @@
+"""
+TDLearner is an agent that implements different Temporal Difference (TD)
+learning algorithms from Sutton & Barto, 2nd ed., Chapter 3.
+
+QLearner and SarsaLearner are subclasses of TDLearner.
+
+Usage:
+
+env = gym.make('cliff-walk-v0')
+agent = QLearner(n_states, n_actions, epsilon=0.1, gamma=1.0, alpha=0.1)
+obs = env.reset()
+for _ in range(1000):
+    action = agent.sample_action(state)
+    (obs_, reward, done, info) = env.step(action)
+    agent.learn(obs, action, obs_, reward, done)
+    obs = obs_
+
+"""
+
 from gym.utils import seeding
 import numpy as np
 
@@ -39,8 +58,10 @@ class TDLearner(object):
 
         action_values = self.q[s_, :]
         if target_policy == 'optimal':
+            # Q-Learning (Sutton & Barto, p. 131)
             value = np.max(action_values)
         elif target_policy == 'behavior':
+            # SARSA (Sutton & Barto, p. 130)
             a_ = self.sample_action(s_)
             value = action_values[a_]
         else:
