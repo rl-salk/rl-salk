@@ -1,5 +1,5 @@
 # rl-salk
-Main repo for system design and playing around with different architectures 
+Main repo for system design and playing around with different architectures
 
 # Getting Started
 We recommend you install Anaconda to have a fixed environment for your OpenAI gym, tensorflow and other libarary for your dev environment.
@@ -15,13 +15,13 @@ If you don't want Anaconda to activate the "base" environment by default, run th
 conda config --set auto_activate_base false
 ```
 
-### Creating environment
+### Creating a conda environment
 ```
 conda create -n gym python=3 pip
 ```
 This creates an environment called "gym", now you can switch and install gym package
 
-### Activating conda environment
+### Activating a conda environment
 ```
 conda activate gym
 ```
@@ -52,4 +52,5 @@ env = gym.make('grid-world-v0')
 ### Creating new gym environments
 
 The docs: http://gym.openai.com/docs/
+
 Blog post: https://medium.com/@apoddar573/making-your-own-custom-environment-in-gym-c3b65ff8cdaa
