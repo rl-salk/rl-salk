@@ -54,3 +54,7 @@ env = gym.make('grid-world-v0')
 The docs: http://gym.openai.com/docs/
 
 Blog post: https://medium.com/@apoddar573/making-your-own-custom-environment-in-gym-c3b65ff8cdaa
+
+### Using Git
+
+[Git cheat sheet](https://github.github.com/training-kit/downloads/github-git-cheat-sheet.pdf)
